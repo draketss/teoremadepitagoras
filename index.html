@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilosindex.css">
+    <link rel="icon" href="teorema.png" type="image/png">
+    <title>Introducción al Teorema de Pitágoras</title>
+</head>
+<body>
+    <header>
+        <h1>Introducción al Teorema de Pitágoras</h1>
+    </header>
+    <div>
+        <p>El Teorema de Pitágoras es uno de los conceptos fundamentales en la geometría y las matemáticas en general. Fue formulado por el antiguo matemático griego Pitágoras y establece la relación entre los lados de un triángulo rectángulo.</p>
+        
+        <h2>Enunciado del Teorema de Pitágoras</h2>
+        <p>El teorema establece que en un triángulo rectángulo, el cuadrado de la longitud de la hipotenusa (el lado opuesto al ángulo recto) es igual a la suma de los cuadrados de las longitudes de los otros dos lados, llamados catetos.</p>
+        
+        <p>Matemáticamente, su fórmula es de la siguiente manera:</p>
+        <p class="formula">c² = a² + b²</p>
+        
+        <p>Donde:</p>
+        <ul>
+            <li>a es la longitud de uno de los catetos.</li>
+            <li>b es la longitud del otro cateto.</li> 
+                   
+            <li>c es la longitud de la hipotenusa.</li>
+        </ul>
+        
+        <h2>Aplicaciones del Teorema de Pitágoras</h2>
+        <p>El teorema tiene numerosas aplicaciones en diversos campos, como la trigonometría, la navegación, la arquitectura y la física. Se utiliza para calcular distancias, ángulos y resolver problemas geométricos en triángulos rectángulos.</p>
+        
+        <h2 class="centered">Calcular la hipotenusa (c)</h2>
+        <p class="formula">Para calcular la hipotenusa (c):</p>
+        <p class="formula">c² = a² + b²</p>
+
+        <p class="centered">Ingrese la longitud de uno de los catetos (a):</p>
+        <input type="number" id="catetoA_c" class="centered">
+
+        <p class="centered">Ingrese la longitud del otro cateto (b):</p>
+        <input type="number" id="catetoB_c" class="centered">
+        <br>
+        <button onclick="calcularHipotenusa()">Calcular Hipotenusa (c)</button>
+
+        <p id="resultado_c" class="centered"></p>
+
+        <h2 class="centered">Calcular un cateto (a)</h2>
+        <p class="formula">Para calcular uno de los catetos (a):</p>
+        <p class="formula">a² = c² - b²</p>
+
+        <p class="centered">Ingrese la longitud de la hipotenusa (c):</p>
+        <input type="number" id="hipotenusa_a" class="centered">
+
+        <p class="centered">Ingrese la longitud del otro cateto (b):</p>
+        <input type="number" id="catetoB_a" class="centered">
+        <br>
+        <button onclick="calcularCatetoA()">Calcular Cateto (a)</button>
+
+        <p id="resultado_a" class="centered"></p>
+
+        <h2 class="centered">Calcular el otro cateto (b)</h2>
+        <p class="formula">Para calcular el otro cateto (b):</p>
+        <p class="formula">b² = c² - a²</p>
+
+        <p class="centered">Ingrese la longitud de la hipotenusa (c):</p>
+        <input type="number" id="hipotenusa_b" class="centered">
+
+        <p class="centered">Ingrese la longitud de uno de los catetos (a):</p>
+        <input type="number" id="catetoA_b" class="centered">
+        <br>
+        <button onclick="calcularCatetoB()">Calcular Cateto (b)</button>
+
+        <p id="resultado_b" class="centered"></p>
+    </div>
+
+    <script>
+        function calcularHipotenusa() {
+            var catetoA = parseFloat(document.getElementById('catetoA_c').value);
+            var catetoB = parseFloat(document.getElementById('catetoB_c').value);
+
+            var hipotenusa = Math.sqrt(catetoA * catetoA + catetoB * catetoB);
+
+            document.getElementById('resultado_c').innerHTML = "La hipotenusa (c) es: " + hipotenusa.toFixed(2);
+        }
+
+        function calcularCatetoA() {
+            var hipotenusa = parseFloat(document.getElementById('hipotenusa_a').value);
+            var catetoB = parseFloat(document.getElementById('catetoB_a').value);
+
+            var catetoA = Math.sqrt(hipotenusa * hipotenusa - catetoB * catetoB);
+
+            document.getElementById('resultado_a').innerHTML = "El cateto (a) es: " + catetoA.toFixed(2);
+        }
+
+        function calcularCatetoB() {
+            var hipotenusa = parseFloat(document.getElementById('hipotenusa_b').value);
+            var catetoA = parseFloat(document.getElementById('catetoA_b').value);
+
+            var catetoB = Math.sqrt(hipotenusa * hipotenusa - catetoA * catetoA);
+
+            document.getElementById('resultado_b').innerHTML = "El cateto (b) es: " + catetoB.toFixed(2);
+        }
+    </script>
+</body>
+</html>
